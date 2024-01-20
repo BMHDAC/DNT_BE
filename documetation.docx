@@ -1,0 +1,94 @@
+users: {
+  user1: {
+    displayName: String // Xuất hiện khi người dùng cập nhật tên hiển thị
+    gender: Enum("male", "female")
+    gmail: String
+    password: String
+    phone: String
+    urlAvatar: String // Xuất hiện khi người dùng cập nhật avatar
+    username: String
+  }
+}
+
+otpRegisters: {
+  gmail1: {
+    gender: Enum("male", "female")
+    gmail: String
+    password: String
+    phone: String
+    username: String
+    otp: String // 6digit khi có yêu cầu đăng ký ứng với gmail này
+    expires: Number
+  }
+}
+// Lưu thông tin các tổ chức
+organizations: {
+  organizationId_1: {
+    name: String // Tên tổ chức
+    description: String // Mô tả của tổ chức
+    contact: String // Thông tin liên hệ
+    urlAvatar: String // Avatar của tổ chức
+    // Danh sách các events của tổ chức đang mở
+    events: {
+      event_id_1: true
+      event_id_2: true
+    }
+    // Nhóm trưởng của tổ chức
+    leader: String
+    // Phó nhóm của tổ chức
+    deputys: {
+      deputy_name_1: String
+      deputy_name_2: String
+    }
+    // Thành viên
+    members: {
+      member_name_1: String
+      member_name_2: String
+    }
+  }
+}
+// Lưu các thông tin mà người dùng tham gia
+joinOrganization: {
+  username_1: {
+    joined: {
+      organization_id_1: true
+      organization_id_2: true
+    }
+    description: String
+  }
+}
+// Quản lý các sự kiện thiện nguyện
+events: {
+  event_id_1: {
+    name: String
+    description: String
+    date: Date / String
+    location: String
+    organization: String // Id của tổ chức quản lý sự kiện này
+    volunteers: {
+      volunteer_id_1: true
+      volunteer_id_2: true
+    }
+  }
+}
+// Các yêu cầu trợ giúp của người dùng thường
+helpRequests: {
+  request_id_1: {
+    title: String
+    description: String
+    date: String // Ngày tạo yêu cầu
+    location: String
+    status: Boolean // Trạng thái của yêu cầu đã được tổ chức nào đó accept Chưa
+    organization: String // Tổ chức đã nhận hỗ trợ yêu cầu này
+  }
+}
+// Các báo cáo thống kê của hoạt động
+reports: {
+  report_id_1: {
+    title: String
+    description: String
+    date: Date / String // Ngày tạo báo cáo
+    author: String // Username của người tạo báo cáo
+    content: String // Url file .docx của báo cáo
+  }
+}
